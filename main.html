@@ -15,7 +15,6 @@
 <form class="needs-validation" novalidate>
 
   <div class="row">
-
     <div class="col-md-4">
       <label for="first-name-input" class="form-label">First Name</label>
       <input type="text" id="first-name-input" class="form-control" required>
@@ -44,7 +43,6 @@
   </div>
 
   <div class="row mt-3">
-   
     <div class="col-md-4">
       <label for="college-input" class="form-label">College</label>
       <input type="text" id="college-input" class="form-control" required>
@@ -96,7 +94,22 @@
 </form>
 
 
-	
+	<script>
+(() => {
+  'use strict';
+  const forms = document.querySelectorAll('.needs-validation');
+
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+</script>
     <script type="text/javascript" src="./script.js">
 </script>
 
